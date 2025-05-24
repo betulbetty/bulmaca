@@ -1,0 +1,229 @@
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #bffcff 0%, #64e7ef 100%);
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.platform-frame {
+  width: 900px;
+  min-height: 660px;
+  background: #ffffffee;
+  border-radius: 38px;
+  box-shadow: 0 8px 32px #7ad5e099;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 0 32px 0;
+  position: relative;
+  margin: 40px auto 0 auto;
+}
+
+.header-title {
+  width: 100%;
+  text-align: center;
+  color: #a259e6;
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin: 32px 0 12px 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.main-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 32px;
+}
+
+.puzzle-wrapper {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  margin: 0;
+}
+
+/* Bulmaca grid alanı */
+#puzzle {
+  display: grid;
+  gap: 3px;
+  justify-content: center;
+  margin: 0;
+  background: linear-gradient(135deg, #f3e7fe 0%, #ffd6f7 100%);
+  padding: 18px 12px 12px 12px;
+  border-radius: 18px;
+  box-shadow: 0 1.5px 10px #e9c7e999;
+  width: fit-content;
+  min-width: unset;
+  min-height: unset;
+  max-width: 520px;
+  max-height: 520px;
+}
+
+.cell {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg,#f3ffff 0%,#fceaff 60%,#ffeaff 100%);
+  border: 1.2px solid #cfa6e9;
+  color: #23305b;
+  font-size: 17px;
+  text-align: center;
+  line-height: 28px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border 0.2s;
+  user-select: none;
+  box-shadow: 0 1.5px 3px #e9c7b9a2;
+}
+.cell.black {
+  background: linear-gradient(135deg,#e7caff 0%,#ffe6ff 100%);
+  border: 1.2px solid #cfa6e9;
+  cursor: default;
+  box-shadow: none;
+}
+.cell.selected {
+  background: linear-gradient(135deg,#fff6b7 0%,#f7b267 100%) !important;
+  color: #5b3700 !important;
+  border: 2px solid #ffb86b;
+  z-index: 1;
+}
+.cell.solved {
+  background: linear-gradient(135deg,#b0f2c2 0%,#21e6c1 100%) !important;
+  color: #035649 !important;
+  border: 2px solid #47d88c;
+  z-index: 1;
+}
+.cell-clue-num {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  color: #a259e6;
+  font-size: 12px;
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 2;
+  text-shadow: 0 1px 2px #fff;
+}
+
+.sidebar {
+  width: 210px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+  margin: 0;
+}
+
+#clue-area {
+  width: 98%;
+  max-width: 178px;
+  background: #faf4ff;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #e0bff744;
+  padding: 10px 8px 7px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.99;
+  margin-top: 24px;
+  margin-bottom: 18px;
+  border: 2px solid #e2caff;
+  min-height: 56px;
+}
+
+#clue {
+  min-height: 16px;
+  color: #a259e6;
+  font-size: 13px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  text-align: center;
+  word-break: break-word;
+  line-height: 1.2;
+}
+#answer-input {
+  font-size: 14px;
+  padding: 3px 5px;
+  border-radius: 8px;
+  border: 1.2px solid #c7b1e7;
+  outline: none;
+  width: 98%;
+  min-width: 40px;
+  max-width: 130px;
+  text-align: center;
+  margin-bottom: 4px;
+  background: #f4f8fb;
+  color: #222;
+  font-weight: 600;
+  box-shadow: 0 1px 3px #dbe2f3a4;
+}
+#answer-input:focus {
+  border: 2px solid #a259e6;
+  background: #fff;
+}
+#feedback {
+  min-height: 13px;
+  color: #e27a7a;
+  font-size: 12px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  font-weight: 600;
+}
+#result {
+  margin-top: 3px;
+  font-size: 12px;
+  color: #1e824c;
+  font-weight: bold;
+  min-height: 18px;
+}
+
+@media (max-width: 1100px) {
+  .platform-frame {
+    width: 99vw;
+    min-width: unset;
+    max-width: 99vw;
+    min-height: unset;
+    padding: 0 0 12vw 0;
+    align-items: center;
+  }
+  .main-content {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    gap: 16px;
+  }
+  .puzzle-wrapper {
+    justify-content: center;
+  }
+  .sidebar {
+    width: 99vw;
+    margin-top: 2vw;
+    max-width: 99vw;
+    align-items: center;
+  }
+  #clue-area {
+    max-width: 90vw;
+    margin-bottom: 3vw;
+    margin-top: 0;
+  }
+  #puzzle {
+    margin: 0 auto 2vw auto;
+    max-width: 95vw;
+  }
+  .header-title {
+    font-size: 6vw;
+    margin: 6vw 0 2vw 0;
+  }
+}
